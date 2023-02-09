@@ -31,10 +31,13 @@ public class SignupPage extends javax.swing.JFrame {
             int updatedRowCount = pst.executeUpdate();
             
             if(updatedRowCount > 0){
-                JOptionPane.showMessageDialog(this, "Recorded Inserted Successfully");
+                JOptionPane.showMessageDialog(this, "Successfully registered!");
+                LoginPage page = new LoginPage();
+                page.setVisible(true);
+                dispose();
             } 
             else{
-                JOptionPane.showMessageDialog(this, "Recorded Inserted Failure");
+                JOptionPane.showMessageDialog(this, "Something went wrong");
             }
 }
         catch(Exception e){
