@@ -89,7 +89,7 @@ public class IssueBook extends javax.swing.JFrame {
         
         try{
             Connection con = DBConnection.getConnection();
-            String sql = "insert into issue_book_details(book_id, book_name, student_id, student_name, "
+            String sql = "insert into issue_book_details1(book_id, book_name, student_id, student_name, "
                     + "issue_date, due_date, status) values(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, bookId);
@@ -145,7 +145,7 @@ public class IssueBook extends javax.swing.JFrame {
         
         try{
             Connection con = DBConnection.getConnection();
-            String sql = "select from * issue_book_details where book_id = ? and student_id = ? and status = ?";
+            String sql = "select from * issue_book_details1 where book_id = ? and student_id = ? and status = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, bookId);
             pst.setInt(2, studentId);

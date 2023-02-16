@@ -31,7 +31,7 @@ public class ReturnBook extends javax.swing.JFrame {
         
         try{
             Connection con = DBConnection.getConnection();
-            String sql = "select * from issue_book_details where book_id = ? and student_id = ? and status = ?";
+            String sql = "select * from issue_book_details1 where book_id = ? and student_id = ? and status = ?";
             
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, bookId);
@@ -72,7 +72,7 @@ public class ReturnBook extends javax.swing.JFrame {
         
         try{
             Connection con = DBConnection.getConnection();
-            String sql = "update issue_book_details set status = ? where student_id = ? and book_id = ? and status = ?";
+            String sql = "update issue_book_details1 set status = ? where student_id = ? and book_id = ? and status = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, "returned");
             pst.setInt(2, studentId);

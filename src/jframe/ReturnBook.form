@@ -96,10 +96,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="lbl_issueDate" min="-2" pref="171" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lbl_bookError" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="43" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbl_bookError" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
