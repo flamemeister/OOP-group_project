@@ -383,6 +383,10 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Issue books"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel11MouseExited"/>
+                                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel11MouseEntered"/>
+                              </Events>
                             </Component>
                             <Container class="javax.swing.JPanel" name="jPanel10">
                               <Properties>
@@ -425,6 +429,10 @@
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Return book"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel12MouseExited"/>
+                                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel12MouseEntered"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -476,6 +484,10 @@
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Records"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel13MouseExited"/>
+                                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel13MouseEntered"/>
+                                  </Events>
                                 </Component>
                                 <Container class="javax.swing.JPanel" name="jPanel12">
                                   <Properties>
@@ -521,6 +533,10 @@
                                         </Property>
                                         <Property name="text" type="java.lang.String" value="View issued books"/>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel14MouseExited"/>
+                                        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel14MouseEntered"/>
+                                      </Events>
                                     </Component>
                                     <Container class="javax.swing.JPanel" name="jPanel13">
                                       <Properties>
@@ -573,6 +589,10 @@
                                             </Property>
                                             <Property name="text" type="java.lang.String" value="List"/>
                                           </Properties>
+                                          <Events>
+                                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel15MouseExited"/>
+                                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel15MouseEntered"/>
+                                          </Events>
                                         </Component>
                                         <Container class="javax.swing.JPanel" name="jPanel14">
                                           <Properties>
