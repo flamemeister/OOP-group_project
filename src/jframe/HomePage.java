@@ -179,6 +179,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/adminIcons/icons8_Conference_26px.png"))); // NOI18N
         jLabel10.setText("Students management");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel10MouseExited(evt);
             }
@@ -875,6 +878,13 @@ public class HomePage extends javax.swing.JFrame {
     private void jLabel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseExited
         jPanel13.setBackground(mouseExitColor);
     }//GEN-LAST:event_jLabel15MouseExited
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        ManageStudents student;
+        student = new ManageStudents();
+        student.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     
     public static void main(String args[]) {
