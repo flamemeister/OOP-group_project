@@ -14,10 +14,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Dias
- */
+
 public class ViewAllRecord extends javax.swing.JFrame {
 
     DefaultTableModel model;
@@ -58,48 +55,6 @@ public class ViewAllRecord extends javax.swing.JFrame {
         }
             
             public void search(){
-//                Date uFromDate = date_fromDate.getDatoFecha();
-//                Date uToDate = date_toDate.getDatoFecha();
-//                
-//                long l1 = uFromDate.getTime();
-//                long l2 = uToDate.getTime();
-//                
-//                java.sql.Date fromDate = new java.sql.Date(l1);
-//                java.sql.Date toDate = new java.sql.Date(l2);
-//                
-//                try{
-//                    Connection con = DBConnection.getConnection();
-//                    String sql = "select * from issue_book_details1 where issue_date BETWEEN ? and ?";
-//                    PreparedStatement pst = con.prepareStatement(sql);
-//                    pst.setDate(1, fromDate);
-//                    pst.setDate(2, toDate);
-//                    
-//                    
-//                    
-//                    ResultSet rs = pst.executeQuery();
-//                    
-//                    if(rs.next()){
-//                        JOptionPane.showMessageDialog(this , "No record found!");
-//                    }
-//                    else{
-//                        
-//                    
-//                        while(rs.next()){
-//                            String id = rs.getString("id");
-//                            String bookName = rs.getString("book_name");
-//                            String StudentName = rs.getString("student_name");
-//                            String issueDate = rs.getString("issue_date");
-//                            String dueDate = rs.getString("due_date");
-//                            String status = rs.getString("status");
-//                
-//                            Object[] obj = {id, bookName, StudentName, issueDate, dueDate, status};
-//                            model = (DefaultTableModel) tbl_issueBookDetails.getModel();
-//                            model.addRow(obj);
-//                        }}
-//                }
-//                catch(Exception e){
-//                    e.printStackTrace();
-//                }
     Date uFromDate = date_fromDate.getDatoFecha();
     Date uToDate = date_toDate.getDatoFecha();
 
@@ -294,11 +249,9 @@ public class ViewAllRecord extends javax.swing.JFrame {
         setIssueBookDetailsToTable();
     }//GEN-LAST:event_rSMaterialButtonCircle3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

@@ -1,4 +1,3 @@
-
 package jframe;
 
 import java.sql.Connection;
@@ -28,7 +27,6 @@ public class ManageStudents extends javax.swing.JFrame {
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms", "root", "");
             Class.forName("com.mysql.jdbc.Driver");
-//            String sql= "insert into users(name, password, email, contact) values(?, ?, ?, ?)";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from student_details");
             

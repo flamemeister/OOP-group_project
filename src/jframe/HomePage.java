@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jframe;
 
 import java.awt.BorderLayout;
@@ -19,10 +14,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 
-/**
- *
- * @author Dias
- */
+
 public class HomePage extends javax.swing.JFrame {
     
     DefaultTableModel model;
@@ -40,7 +32,6 @@ public class HomePage extends javax.swing.JFrame {
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms", "root", "");
             Class.forName("com.mysql.jdbc.Driver");
-//            String sql= "insert into users(name, password, email, contact) values(?, ?, ?, ?)";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from student_details");
             
@@ -61,12 +52,12 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
         
-            public void setBookDetailsToTable(){
-        try{
-            Connection con = DBConnection.getConnection();
-            String sql= "insert into users(name, password, email, contact) values(?, ?, ?, ?)";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from book_details");
+        public void setBookDetailsToTable(){
+            try{
+                Connection con = DBConnection.getConnection();
+                String sql= "insert into users(name, password, email, contact) values(?, ?, ?, ?)";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("select * from book_details");
             
             while(rs.next()){
                 String book_id = rs.getString("book_id");
@@ -85,60 +76,51 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
             
-    public void setDataToCards(){
-        Statement st = null;
-        ResultSet rs = null; 
-        
-        long l = System.currentTimeMillis();
-        Date todaysDate = new Date(l);
-        
-        try{
-            Connection con = DBConnection.getConnection();
-            st = con.createStatement();
-            rs = st.executeQuery("select * from book_details");
-            rs.last();
-            lbl_nofOfBooks.setText(Integer.toString(rs.getRow()));
+        public void setDataToCards(){
+            Statement st = null;
+            ResultSet rs = null;      
             
-            rs = st.executeQuery("select * from student_details");
-            rs.last();
-            lbl_noOfStudent.setText(Integer.toString(rs.getRow()));
-            
-             rs = st.executeQuery("select * from issue_book_details1 where status = '"+"pending"+"'");
-            rs.last();
-            lbl_issueBooks.setText(Integer.toString(rs.getRow()));
-        }
-        catch(Exception e){
-            e.printStackTrace();
+            try{
+                Connection con = DBConnection.getConnection();
+                st = con.createStatement();
+                rs = st.executeQuery("select * from book_details");
+                rs.last();
+                lbl_nofOfBooks.setText(Integer.toString(rs.getRow()));
+
+                rs = st.executeQuery("select * from student_details");
+                rs.last();
+                lbl_noOfStudent.setText(Integer.toString(rs.getRow()));
+
+                 rs = st.executeQuery("select * from issue_book_details1 where status = '"+"pending"+"'");
+                rs.last();
+                lbl_issueBooks.setText(Integer.toString(rs.getRow()));
+            }
+            catch(Exception e){
+                e.printStackTrace();
         }
     }
         
-    public void showPieChart(){
-        
-        //create dataset
-      DefaultPieDataset barDataset = new DefaultPieDataset( );
-      
-      
-      try{
-          Connection con = DBConnection.getConnection();
-          String sql = "select book_name ,count(*) as issue_count from issue_book_details1 group by book_id";
-          Statement st = con.createStatement();
-          ResultSet rs = st.executeQuery(sql);
-          while(rs.next()){
-              barDataset.setValue(rs.getString("book_name"), new Double(rs.getDouble("issue_count")));
+        public void showPieChart(){
+          DefaultPieDataset barDataset = new DefaultPieDataset( );
+
+          try{
+              Connection con = DBConnection.getConnection();
+              String sql = "select book_name ,count(*) as issue_count from issue_book_details1 group by book_id";
+              Statement st = con.createStatement();
+              ResultSet rs = st.executeQuery(sql);
+                while(rs.next()){
+                  barDataset.setValue(rs.getString("book_name"), new Double(rs.getDouble("issue_count")));
+              }
           }
-      }
-      catch(Exception e){
-          e.printStackTrace();
-      }
+          catch(Exception e){
+              e.printStackTrace();
+          }
       
-  
-      
-      //create chart
        JFreeChart piechart = ChartFactory.createPieChart("Books",barDataset, false,true,false);//explain
       
         PiePlot piePlot =(PiePlot) piechart.getPlot();
       
-       //changing pie chart blocks colors
+       
        piePlot.setSectionPaint("Sultok", new Color(255,255,102));
         piePlot.setSectionPaint("Alibek", new Color(102,255,102));
         piePlot.setSectionPaint("nurai", new Color(255,102,153));
@@ -147,7 +129,6 @@ public class HomePage extends javax.swing.JFrame {
        
         piePlot.setBackgroundPaint(Color.white);
         
-        //create chartPanel to display chart(graph)
         ChartPanel barChartPanel = new ChartPanel(piechart);
         jPanel20.removeAll();
         jPanel20.add(barChartPanel, BorderLayout.CENTER);
@@ -392,6 +373,9 @@ public class HomePage extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/adminIcons/icons8_Exit_26px.png"))); // NOI18N
         jLabel16.setText("Logout");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel16MouseExited(evt);
             }
@@ -669,17 +653,17 @@ public class HomePage extends javax.swing.JFrame {
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap(91, Short.MAX_VALUE)
                 .addComponent(lbl_issueBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(89, 89, 89))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(23, 23, 23)
                 .addComponent(lbl_issueBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jLabel23.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
@@ -747,14 +731,14 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(177, 177, 177)
+                                .addGap(225, 225, 225)
                                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel23)
-                                .addGap(309, 309, 309)
+                                .addGap(357, 357, 357)
                                 .addComponent(jLabel24)))))
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel15Layout.createSequentialGroup()
                     .addGap(77, 77, 77)
@@ -947,6 +931,12 @@ public class HomePage extends javax.swing.JFrame {
     private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
         
     }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        LoginPage login = new LoginPage();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel16MouseClicked
 
     
     public static void main(String args[]) {
